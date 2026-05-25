@@ -13,7 +13,7 @@ clear all; close all; clc;
 magnitudes = 0:20:100;
 
 % Reference dataset
-ref = "clear-clear.mat";
+ref = "input-data/clear-clear.mat";
 
 % Make a report folder (if one doesn't already exist)
 if ~isfolder("report")
@@ -44,10 +44,10 @@ fprintf(fid, strjoin(str, newline));
 
 % Add section for each blurry dataset
 for m = magnitudes
-    file = sprintf("input-data/ohtcfrp_00_m%d_t0_vs_ohtcfrp_11_m%d_t0.mat", m, m);
+    file = sprintf("ohtcfrp_00_m%d_t0_vs_ohtcfrp_11_m%d_t0.mat", m, m);
     fprintf("Evaluating results for "+file+" ...\n")
     fprintf(fid, "\\section{Motion blur of $"+m+"\\angle\\ang{0}$}\n");
-    results = result_eval(file, ref, file, "report/dic-plots/");
+    results = result_eval("input-data/"+file, ref, file, "report/dic-plots/");
     fprintf(fid, results);
 end
 

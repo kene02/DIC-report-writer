@@ -17,6 +17,7 @@ function out_str = result_eval(blurry_path, clear_path, out_name, out_path)
 %
 %   Output:
 %     out_str     - LaTeX code block for embedding figures and results table
+
 arguments (Input)
     blurry_path string
     clear_path string
@@ -73,7 +74,7 @@ out_str = out_str + ...
     " \\\\\n";
 
 % Export each plot as a PNG file
-plot_dic_data(A);
+plot_dic_data(A, [-1 0]);
 title(plot_title)
 exportgraphics(gcf, out_path+erase(out_name, ".mat")+"_u.png");
 fprintf(out_path+erase(out_name, ".mat")+"_u.png exported.\n")
@@ -88,7 +89,7 @@ out_str = out_str + ...
     " \\\\\n";
 
 % Export each plot as a PNG file
-plot_dic_data(A);
+plot_dic_data(A, [-10 -5]);
 title(plot_title)
 exportgraphics(gcf, out_path+erase(out_name, ".mat")+"_v.png");
 fprintf(out_path+erase(out_name, ".mat")+"_v.png exported.\n")
@@ -103,7 +104,7 @@ out_str = out_str + ...
     " \\\\\n";
 
 % Export each plot as a PNG file
-plot_dic_data(A);
+plot_dic_data(A, [-2e-3 2e-3]);
 title(plot_title)
 exportgraphics(gcf, out_path+erase(out_name, ".mat")+"_exx.png");
 fprintf(out_path+erase(out_name, ".mat")+"_exx.png exported.\n")
@@ -118,7 +119,7 @@ out_str = out_str + ...
     " \\\\\n";
 
 % Export each plot as a PNG file
-plot_dic_data(A);
+plot_dic_data(A, [-2e-3 2e-3]);
 title(plot_title)
 exportgraphics(gcf, out_path+erase(out_name, ".mat")+"_exy.png");
 fprintf(out_path+erase(out_name, ".mat")+"_exy.png exported.\n")
@@ -133,7 +134,7 @@ out_str = out_str + ...
     " \\\\ ";
 
 % Export each plot as a PNG file
-plot_dic_data(A);
+plot_dic_data(A, [5e-3 10e-3]);
 title(plot_title)
 exportgraphics(gcf, out_path+erase(out_name, ".mat")+"_eyy.png");
 fprintf(out_path+erase(out_name, ".mat")+"_eyy.png exported.\n")
