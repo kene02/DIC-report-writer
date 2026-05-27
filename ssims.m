@@ -34,6 +34,8 @@ ssim_values(2) = ssim(A, ref);
 % exx strain
 A = blurry_data.strains.plot_exx_ref_formatted;
 ref = clear_data.strains.plot_exx_ref_formatted;
+A = (A + 2E-3)*256 / 4E-3;
+ref = (ref + 2E-3)*256 / 4E-3;
 ssim_values(3) = ssim(A, ref);
 
 % exy strain
@@ -44,6 +46,8 @@ ssim_values(4) = ssim(A, ref);
 % eyy strain
 A = blurry_data.strains.plot_eyy_ref_formatted;
 ref = clear_data.strains.plot_eyy_ref_formatted;
+A = (A * 256) / 10E-3;
+ref = (ref * 256) / 10E-3;
 ssim_values(5) = ssim(A, ref);
 
 end

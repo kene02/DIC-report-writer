@@ -21,19 +21,19 @@ ref = "input-data/clear-clear.mat";
 
 values = [];
 for m = magnitudes
-    % file = sprintf("ohtcfrp_00_m%d_t0_vs_ohtcfrp_11_m%d_t0.mat", m, m);
-    file = sprintf("input-data/ohtcfrp_00_vs_ohtcfrp_11_m%d_t0.mat", m);
+    file = sprintf("input-data/ohtcfrp_00_m%d_t0_vs_ohtcfrp_11_m%d_t0.mat", m, m);
+    % file = sprintf("input-data/ohtcfrp_00_vs_ohtcfrp_11_m%d_t0.mat", m);
     disp(file);
-    new_row = [0, 0, m, 0, ssims(file, ref), psnrs(file, ref)];
+    new_row = [m, 0, m, 0, ssims(file, ref), psnrs(file, ref)];
     values = [values; new_row];
 end
 
-for t = angles
-    file = sprintf("input-data/ohtcfrp_00_vs_ohtcfrp_11_m20_t%d.mat", t);
-    disp(file);
-    new_row = [0, 0, 20, t, ssims(file, ref), psnrs(file, ref)];
-    values = [values; new_row];
-end
+% for t = angles
+%     file = sprintf("input-data/ohtcfrp_00_vs_ohtcfrp_11_m20_t%d.mat", t);
+%     disp(file);
+%     new_row = [0, 0, 20, t, ssims(file, ref), psnrs(file, ref)];
+%     values = [values; new_row];
+% end
 
 % Export to CSV
 headings = ["Ref_Motion_Blur_Magnitude", "Ref_Motion_Blur_Direction", ...

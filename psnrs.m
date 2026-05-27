@@ -34,6 +34,8 @@ psnr_values(2) = psnr(A, ref);
 % exx strain
 A = blurry_data.strains.plot_exx_ref_formatted;
 ref = clear_data.strains.plot_exx_ref_formatted;
+A = (A + 2E-3)*256 / 4E-3;
+ref = (ref + 2E-3)*256 / 4E-3;
 psnr_values(3) = psnr(A, ref);
 
 % exy strain
@@ -44,6 +46,8 @@ psnr_values(4) = psnr(A, ref);
 % eyy strain
 A = blurry_data.strains.plot_eyy_ref_formatted;
 ref = clear_data.strains.plot_eyy_ref_formatted;
+A = (A * 256) / 10E-3;
+ref = (ref * 256) / 10E-3;
 psnr_values(5) = psnr(A, ref);
 
 end
